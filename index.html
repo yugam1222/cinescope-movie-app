@@ -3,19 +3,69 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Explorer 🎬</title>
+  <title>Cinescope 🎬</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Carter+One&family=Zen+Dots&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <h1>Cinescope 🎬</h1>
 
-  <div class="search-box">
-    <input type="text" id="searchInput" placeholder="Search movies...">
-    <button onclick="searchMovies()">Search</button>
+  <header class="navbar">
+    <div class="logo">Cinescope</div>
+
+    <nav>
+      <span>Movies</span>
+      <span>Series</span>
+      <span>Premium</span>
+    </nav>
+
+    <input type="text" id="searchInput" placeholder="Search..." onkeyup="searchMovies()">
+  </header>
+
+
+  <section class="main-container">
+
+
+    <div class="hero-banner">
+      <div class="hero-text">
+        <h1 id="heroTitle">Trending Now</h1>
+        <p>Explore trending movies instantly</p>
+        <button onclick="searchMovies()">Explore</button>
+      </div>
+    </div>
+
+    
+    <div class="side-cards">
+      <div class="side-card">Top Picks</div>
+      <div class="side-card">New Releases</div>
+    </div>
+
+  </section>
+
+
+  <div class="controls">
+    <select id="filterType" onchange="applyFilters()">
+      <option value="all">All</option>
+      <option value="movie">Movies</option>
+      <option value="series">Series</option>
+    </select>
+
+    <select id="sortOption" onchange="applyFilters()">
+      <option value="default">Sort</option>
+      <option value="yearAsc">Year ↑</option>
+      <option value="yearDesc">Year ↓</option>
+    </select>
   </div>
 
-  <div id="moviesContainer"></div>
+
+  <h2 class="section-title">Trending</h2>
+  <div id="moviesContainer" class="trending-row"></div>
 
   <script src="script.js"></script>
 </body>
